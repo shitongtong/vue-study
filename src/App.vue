@@ -22,15 +22,15 @@
       <div class="main-left">
         <el-menu default-active="/activePublic" class="el-menu-vertical-demo" :router="true">
           <el-menu-item index="/activePublic" :class="{'isActive': active}">活动发布</el-menu-item>
-          <el-menu-item index="/activeManage" :class="{'isActive': !active}">活动管理</el-menu-item>
+          <el-menu-item index="/activeManage" :class="{'isActive': active}">活动管理</el-menu-item>
         </el-menu>
       </div>
       <!-- 右侧主内容区 -->
       <div  class="main-right" >
-
+        <!-- 视图 -->
+        <router-view class="view"></router-view>
       </div>
     </main>
-    <router-view/>
   </div>
 </template>
 
@@ -41,7 +41,12 @@
   Vue.use(Element)
 
 export default {
-  name: 'App'
+  name: 'App',
+  data:function () {
+    return{
+      active:true
+    }
+  }
 }
 </script>
 
